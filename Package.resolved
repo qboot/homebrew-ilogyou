@@ -1,0 +1,25 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CodeWriter",
+        "repositoryURL": "https://github.com/Digipolitan/code-writer.git",
+        "state": {
+          "branch": null,
+          "revision": "54107bc0b32ea410385e9860143d58e1d27dde39",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "SwiftCodeWriter",
+        "repositoryURL": "https://github.com/Digipolitan/swift-code-writer.git",
+        "state": {
+          "branch": null,
+          "revision": "135ef9e5d179c4139fd88edd28f04daf6166ce2e",
+          "version": "1.1.0"
+        }
+      }
+    ]
+  },
+  "version": 1
+}
