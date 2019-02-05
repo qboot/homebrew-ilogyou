@@ -23,13 +23,6 @@ class CLI {
         }
     }
     
-    public func askForUserModelName(){
-        view.askForUserModelName()
-        if let input = readLine() {
-            configuration.userClassName = input
-        }
-    }
-    
     public func askForUserModelFields(){
         view.askForUserModelFields()
         var askForFields = true
@@ -69,30 +62,6 @@ class CLI {
         return true
     }
     
-    public func askForViews(){
-        view.askForViews()
-        var i = 1
-        configuration.viewsAvailable.forEach { (key: String, value: String) in
-            print("\(i) - \(key) -> \(value) method")
-            i += 1
-        }
-        if let input = readLine() {
-            let inputArray = input.split(separator: ",")
-            inputArray.forEach { element in
-                if var number = Int(element) {
-                    number -= 1
-                    var i = 0
-                    configuration.viewsAvailable.forEach({ (key: String, value: String) in
-                        if(number == i){
-                            configuration.viewsNeeded[key] = value;
-                        }
-                        i += 1
-                    })
-                }
-            }
-        }
-    }
-    
     public func askForAPIAddress(){
         view.askForAPIAddress()
         if let input = readLine() {
@@ -100,14 +69,8 @@ class CLI {
         }
     }
     
-    public func askForAPIRoutes(){
-        view.askForAPIRoutes()
-        
-        configuration.viewsNeeded.forEach({ (key: String, value: String) in
-            view.askForRoute(view: key, method: value)
-            if let input = readLine(){
-                configuration.APIRoutes[input] = value
-            }
-        })
+    
+    public func end() {
+        print("Le projet \(configuration.projectName) a bien été généré ! 🙈🙉")
     }
 }

@@ -11,15 +11,15 @@ class View {
     
     public func welcome(){
         print()
-        print("✨  Hi, welcome to iLogYou ! ✨\n")
+        print("Hi, thanks for using iLogYou !\n")
     }
     
     public func askForProjectName(){
-        print("What's your project name ?")
+        print("Project name:")
     }
     
     public func askForUserModelName(){
-        print("Name of user class :")
+        print("Name of user class:")
     }
     
     public func askForUserModelFields(){

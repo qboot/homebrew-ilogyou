@@ -9,21 +9,36 @@
 import Foundation
 import SwiftCodeWriter
 import CodeWriter
+import XcodeGenKit
 
 var cli = CLI()
 
 cli.welcome()
 cli.askForProjectName()
-cli.askForUserModelName()
-cli.askForUserModelFields()
-cli.askForViews()
-cli.askForAPIAddress()
-cli.askForAPIRoutes()
+//cli.askForUserModelFields()
+//cli.askForAPIAddress()
+//cli.askForAPIRoutes()
 
 var fileGenerator = FileGenerator(configuration: cli.configuration)
 
 fileGenerator.generateDirectories()
 fileGenerator.generateUserModel()
+fileGenerator.generateBasicFiles()
+fileGenerator.generateViewControllers()
+fileGenerator.generateXcodeProj()
+
+cli.end()
+
+//
+// 1. Project Name
+// 2. User Model
+// 3. API address
+// 4. API routes :
+//    - login
+//    - signup
+//    - forgotten password
+//    - delete user
+//
 
 //
 // File architecture of iLogYou Framework
