@@ -6,8 +6,6 @@
 //
 
 import Foundation
-import SwiftCodeWriter
-import CodeWriter
 
 class FileConstructor {
     

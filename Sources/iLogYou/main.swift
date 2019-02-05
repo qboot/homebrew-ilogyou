@@ -7,8 +7,6 @@
 //
 
 import Foundation
-import SwiftCodeWriter
-import CodeWriter
 import XcodeGenKit
 
 var cli = CLI()

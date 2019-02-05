@@ -6,8 +6,6 @@ import PackageDescription
 let package = Package(
     name: "iLogYou",
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-        .package(url: "https://github.com/Digipolitan/swift-code-writer.git", from: "1.0.0"),
         .package(url: "https://github.com/yonaskolb/XcodeGen.git", from: "1.0.0"),
     ],
     targets: [
@@ -15,7 +13,7 @@ let package = Package(
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
             name: "iLogYou",
-            dependencies: ["SwiftCodeWriter", "XcodeGenKit"]),
+            dependencies: ["XcodeGenKit"]),
         .testTarget(
             name: "iLogYouTests",
             dependencies: ["iLogYou"]),
