@@ -1,14 +1,14 @@
 //
-//  CITest.swift
+//  TestUserModel.swift
 //  iLogYouTests
 //
-//  Created by pierre piron on 05/02/2019.
+//  Created by pierre piron on 07/02/2019.
 //
 
 import XCTest
 @testable import iLogYou
 
-class CITest: XCTestCase {
+class TestUserModel: XCTestCase {
     
     func testBlankConfiguration() {
         let configuration = Configuration()
@@ -18,19 +18,8 @@ class CITest: XCTestCase {
         XCTAssertEqual(configuration.userClassFields, [:])
         XCTAssertEqual(configuration.APIRoutes, [:])
     }
-    
-    func testCreateValidAppDelegateFile() {
-        let appDelegate = BasicFiles.appDelegate
-        XCTAssertTrue(appDelegate.contains("class AppDelegate"))
-        XCTAssertTrue(appDelegate.contains("func application("))
-        XCTAssertTrue(appDelegate.contains("func applicationWillResignActive"))
-        XCTAssertTrue(appDelegate.contains("func applicationDidEnterBackground("))
-        XCTAssertTrue(appDelegate.contains("func applicationWillEnterForeground("))
-        XCTAssertTrue(appDelegate.contains("func applicationDidBecomeActive("))
-        XCTAssertTrue(appDelegate.contains("func applicationWillTerminate("))
-    }
-    
-    func testCreateUserModel() {
+   
+    func testCreateUserModelWith3Fields() {
         let configuration = Configuration()
         configuration.userClassFields["email"] = "string"
         configuration.userClassFields["password"] = "string"
@@ -44,4 +33,15 @@ class CITest: XCTestCase {
         XCTAssertTrue(userModel.contains("var password: string?"))
     }
     
+    func testCreateUserModelWith1Fields() {
+        let configuration = Configuration()
+        configuration.userClassFields["username"] = "string"
+        
+        let fileConstructor = FileConstructor(configuration: configuration)
+        let userModel = fileConstructor.constructUserModel()
+        
+        XCTAssertTrue(userModel.contains("var username: string?"))
+        XCTAssertFalse(userModel.contains("var password: string?"))
+    }
+
 }
